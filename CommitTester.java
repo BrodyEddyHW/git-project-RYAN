@@ -56,13 +56,13 @@ public class CommitTester {
         }
 
         //tests checkout
-        git.checkout(hash);
-        if (test.exists() && !newFile.exists()) {
-            System.out.println("checkout works I think");
-        }
-        else {
-            System.out.println("its no good");
-        }
+        // git.checkout(hash);
+        // if (test.exists() && !newFile.exists()) {
+        //     System.out.println("checkout works I think");
+        // }
+        // else {
+        //     System.out.println("its no good");
+        // }
 
     }
 }

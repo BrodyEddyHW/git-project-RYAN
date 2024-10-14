@@ -208,16 +208,15 @@ public class Git implements GitInterface{
         String dateLine = format.format(date);
 
         //writes to commit file
-        String hash = treeLine.substring(6);
+        
+        String temp = treeLine + parentLine + "author: " + author + "\n" + 
+        "date: " + dateLine + "\n" + "message: " + message + "\n";
+        String hash = getHash(temp);
         File commit = new File ("git/objects/" + hash);
         commit.createNewFile();
 
         BufferedWriter bw = new BufferedWriter (new FileWriter (commit));
-        bw.write(treeLine);
-        bw.write(parentLine);
-        bw.write("author: " + author + "\n");
-        bw.write("date: " + dateLine + "\n");
-        bw.write("message: " + message + "\n");
+        bw.write(temp);
         bw.close();
 
         //updates HEAD
